@@ -1,4 +1,4 @@
-name: Java CI - Sistema Bancario BBVA (Java 21)
+name: Java CI - Sistema Bancario BBVA (Java 21 + JUnit)
 
 on:
   push:
@@ -21,4 +21,11 @@ jobs:
         java-version: '21'
 
     - name: Compilar proyecto
-      run: javac SistemaBancarioBBVA.java
+      run: |
+        javac -cp lib/junit-platform-console-standalone-1.10.2.jar *.java
+
+    - name: Ejecutar pruebas JUnit
+      run: |
+        java -jar lib/junit-platform-console-standalone-1.10.2.jar \
+        --class-path . \
+        --scan-class-path
