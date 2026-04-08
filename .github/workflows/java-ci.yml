@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Descargar repositorio
+    - name: Checkout del código
       uses: actions/checkout@v4
 
     - name: Configurar Java 21
@@ -21,6 +21,4 @@ jobs:
         java-version: '21'
 
     - name: Compilar proyecto
-      run: |
-        cd src
-        javac SistemaBancarioBBVA.java
+      run: javac SistemaBancarioBBVA.java
